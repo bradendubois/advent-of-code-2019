@@ -22,4 +22,5 @@ int main() {
     for (int i = 2; i < output.size(); i += 3) {
         if (output[i] == 2) blocks++;
     } cout << blocks << endl;
+
 }

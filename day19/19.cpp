@@ -5,17 +5,16 @@
 using namespace std;
 
 string instructions;
+Intcode machine;
+vector<long> output;
 
 int pulled(int x, int y) {
 
-    Intcode machine;
-
-    machine.load_sequence(instructions);
-    vector<long> output;
-    machine.next = &output;
+    machine.reset();
 
     machine.receive(x);
     machine.receive(y);
+    
     machine.execute();
 
     return output.back();
@@ -26,26 +25,30 @@ int main() {
 
     cin >> instructions;
 
-    int pulled_positions = 0;
+    machine.load_sequence(instructions);
+    machine.next = &output;
 
-    for (int x = 0; x < 50; x++) {
+    /**************** Part One ****************/
+    int x, y , pulled_positions = 0;
 
-        for (int y = 0; y < 50; y++) {
+    for (x = 0; x < 50; x++) {
+        for (y = 0; y < 50; y++) {
 
             if (pulled(x, y)) pulled_positions++;
-        }
 
+        }
     }
 
     cout << pulled_positions << endl;
 
+    /**************** Part Two ****************/
     int N = 100;
 
-    int x = 0, y = N-1;
+    x = 0, y = N-1;
 
     while (1) {
 
-        while (pulled(x, y) == 0) x++;
+        while (!pulled(x, y)) x++;
 
         if (pulled(x + N-1, y - N+1) == 1) {
             cout << x * 10000 + y-N+1 << endl;

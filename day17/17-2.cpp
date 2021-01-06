@@ -12,11 +12,11 @@ int main() {
     Intcode machine;
 
     machine.load_sequence(instructions);
-    vector<long> output;
+    deque<long> output;
     machine.next = &output;
 
 
-    vector<long> directions = {
+    deque<long> directions = {
 
         // Main Sequence: A B A A B C B C C B
         65, 44, 66, 44, 65, 44, 65, 44, 66, 44, 67, 44, 66, 44, 67, 44, 67, 44, 66, 10, 

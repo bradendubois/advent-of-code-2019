@@ -12,12 +12,12 @@ int main() {
     Intcode machine;
 
     machine.load_sequence(instructions);
-    vector<long> output;
+    deque<long> output;
     machine.next = &output;
 
     long x, y, alignment = 0;
-    vector<vector<char>*> scaffold;
-    vector<char> *current;
+    deque<deque<char>*> scaffold;
+    deque<char> *current;
 
     char c, up, left, down, right;
 
@@ -25,7 +25,7 @@ int main() {
     y = 0;
 
     machine.execute();
-    current = new vector<char>;
+    current = new deque<char>;
 
     for (auto v: output) {
 
@@ -33,7 +33,7 @@ int main() {
 
         if (c == '\n') {
             scaffold.push_back(current);
-            current = new vector<char>;
+            current = new deque<char>;
 
         } else {
             current->push_back(c);

@@ -17,7 +17,7 @@ int main() {
     getline(f, instructions);
 
     Intcode machine;
-    vector<long> output;
+    deque<long> output;
     machine.next = &output;
 
     machine.load_sequence(instructions);

@@ -8,7 +8,7 @@ int main() {
     cin >> instructions;
 
     Intcode machines [50];
-    vector<long> outputs[50];
+    deque<long> outputs[50];
 
     for (int i = 0; i < 50; i++) {
         machines[i].load_sequence(instructions);

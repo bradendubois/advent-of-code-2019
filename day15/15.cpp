@@ -71,17 +71,17 @@ int main() {
     string instructions;
     cin >> instructions;
 
-    vector<long> output;
+    deque<long> output;
 
     Intcode machine;
     machine.next = &output;
 
     machine.load_sequence(instructions);
 
-    deque<vector<long>*> queue;
-    vector<long> *current, *next_vector, *oxygen = nullptr;
+    deque<deque<long>*> queue;
+    deque<long> *current, *next_vector, *oxygen = nullptr;
 
-    current = new vector<long>;
+    current = new deque<long>;
 
     current->push_back(0);
     current->push_back(0);
@@ -147,7 +147,7 @@ int main() {
 
         for (int direction = 1; direction <= 4; direction++) {
 
-            next_vector = new vector<long>;
+            next_vector = new deque<long>;
             for (auto v: *current) next_vector->push_back(v);
 
             next_vector->push_back(direction);

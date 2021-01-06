@@ -11,7 +11,7 @@ int main() {
 
     machine.load_sequence(instructions);
 
-    vector<long> out;
+    deque<long> out;
     machine.next = &out;
 
     string program1 [] = {"NOT C J", "AND D J", "NOT A T", "OR T J", "WALK"};

@@ -6,7 +6,7 @@ using namespace std;
 
 string instructions;
 Intcode machine;
-vector<long> output;
+deque<long> output;
 
 int pulled(int x, int y) {
 

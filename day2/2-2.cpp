@@ -3,7 +3,7 @@
 #include <vector>
 #include <sstream>
 
-#include "../Intcode.h"
+#include "../Intcode.cpp"
 
 using namespace std;
 

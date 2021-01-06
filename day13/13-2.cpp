@@ -6,7 +6,7 @@ using namespace std;
 
 Intcode machine;
 
-void display(vector<long> ins) {
+void display(deque<long> ins) {
 
     map<int, map<int, char>> screen;
 
@@ -53,7 +53,7 @@ int main() {
     cin >> instructions;
 
     machine.load_sequence(instructions);
-    vector<long> output;
+    deque<long> output;
     machine.next = &output;
 
     for (int i = 1362; i <= 1397; i++) machine.set(i, 3);

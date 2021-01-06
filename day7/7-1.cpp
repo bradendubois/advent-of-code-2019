@@ -14,7 +14,7 @@ int main() {
     cin >> instructions;
 
     vector<int> phases{0, 1, 2, 3, 4};
-    vector<long> signals;
+    deque<long> signals;
 
     do {
         

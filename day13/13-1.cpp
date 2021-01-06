@@ -12,7 +12,7 @@ int main() {
     Intcode machine;
 
     machine.load_sequence(instructions);
-    vector<long> output;
+    deque<long> output;
     machine.next = &output;
 
     machine.execute();

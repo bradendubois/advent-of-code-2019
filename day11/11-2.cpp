@@ -14,7 +14,7 @@ int main() {
     machine.load_sequence(instructions);
     machine.receive(1);
 
-    vector<long> outputs;
+    deque<long> outputs;
     machine.next = &outputs;
 
     map<int, map<int, int>> panels;

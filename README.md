@@ -22,7 +22,7 @@ My solutions to 2019's [Advent of Code](https://advent-of-code.com) problems.
 | 16 | [--- Day 16: Flawed Frequency Transmission ---](https://adventofcode.com/2019/day/16) | [day16](day16) |
 | 17 | [--- Day 17: Set and Forget ---](https://adventofcode.com/2019/day/17) | [day17](day17) |
 | 18 | [--- Day 18: Many-Worlds Interpretation ---](https://adventofcode.com/2019/day/18) | [day18](day18) |
-| 19 | [--- Day 19: Tractor Beam ---](https://adventofcode.com/2019/day/19) | [day19](day19) |
+| 19 | [--- Day 19: Tractor Beam ---](https://adventofcode.com/2019/day/19) | **N/A** |
 | 20 | [--- Day 20: Donut Maze ---](https://adventofcode.com/2019/day/20) | [day20](day20) |
 | 21 | [--- Day 21: Springdroid Adventure ---](https://adventofcode.com/2019/day/21) | [day21](day21) |
 | 22 | [--- Day 22: Slam Shuffle ---](https://adventofcode.com/2019/day/22) | [day22](day22) |

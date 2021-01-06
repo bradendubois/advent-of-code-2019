@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 #include <sstream>
+#include <deque>
 
 using namespace std;
 
@@ -26,14 +27,19 @@ class Intcode {
         long load(long address);
 
         // A queue of values to be processed by code (3) instructions
-        vector<long> in;
+        deque<long> in;
 
         // Used to chain together multiple Intcode machines
-        vector<long> * next = nullptr;
+        deque<long> * next = nullptr;
+
+        // Restore to initial state
+        void reset();
+
 
     private:
 
         map<long, long> memory; // Intcode memory
+        map<long, long> backup; // Backup / restoring memory
 
         long ins_ptr;   // Instruction pointer
         long rel_ptr;   // Relative pointer
@@ -81,7 +87,22 @@ class Intcode {
         void check_incoming();
 };
 
+void Intcode::reset() {
+    memory.clear();
+    for (auto k: backup) {
+        memory[k.first] = k.second;
+    }
+
+    ins_ptr = 0;
+    rel_ptr = 0;
+
+    halted = false;
+    waiting = false;
+}
+
 void Intcode::load_sequence(string instructions) {
+
+    memory.clear();
 
     stringstream convert(instructions);
     vector<long> seq;
@@ -94,6 +115,7 @@ void Intcode::load_sequence(string instructions) {
         long x;
         code >> x;
         memory[r] = x;
+        backup[r] = x;
         r++;
     }
 
@@ -146,12 +168,6 @@ void Intcode::execute() {
     check_incoming();
 
     while (!(halted_temporary() || halted_terminal())) {
-
-        /*
-        for (int i = 0; i < memory.size(); i++) {
-            cout << memory[i] << " ";
-        } cout << endl;
-        */
        
         load_instruction();
 
@@ -266,10 +282,10 @@ void Intcode::srl() {
 long Intcode::get_next() {
     if (in.size() == 0) 
         return -1;
+
     long n = in.front();
-    reverse(in.begin(), in.end());
-    in.pop_back();
-    reverse(in.begin(), in.end());
+    in.pop_front();
+
     return n;
 }
 

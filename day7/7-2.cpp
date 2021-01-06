@@ -13,8 +13,8 @@ int main() {
     string instructions;
     cin >> instructions;
 
-    vector<int> phases{5, 6, 7, 8, 9};
-    vector<long> signals;
+    deque<int> phases{5, 6, 7, 8, 9};
+    deque<long> signals;
 
     do {
         
